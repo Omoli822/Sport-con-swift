@@ -1,0 +1,74 @@
+import SwiftUI
+
+@main
+struct SportsApp: App {
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+        }
+    }
+}
+
+struct ContentView: View {
+    @State private var goldWins = 0
+    @State private var blueWins = 0
+    @State private var greenWins = 0
+    @State private var redWins = 0
+
+    var body: some View {
+        VStack {
+            Text("School Sports Scoreboard")
+                .font(.largeTitle)
+                .padding()
+
+            HStack {
+                VStack {
+                    Text("Gold")
+                    Text("\(goldWins)")
+                }
+                VStack {
+                    Text("Blue")
+                    Text("\(blueWins)")
+                }
+                VStack {
+                    Text("Green")
+                    Text("\(greenWins)")
+                }
+                VStack {
+                    Text("Red")
+                    Text("\(redWins)")
+                }
+            }
+            .font(.title)
+            .padding()
+
+            HStack {
+                Button(action: { goldWins += 1 }) {
+                    Text("Add Win for Gold")
+                }
+                Button(action: { blueWins += 1 }) {
+                    Text("Add Win for Blue")
+                }
+                Button(action: { greenWins += 1 }) {
+                    Text("Add Win for Green")
+                }
+                Button(action: { redWins += 1 }) {
+                    Text("Add Win for Red")
+                }
+                Button(action: { greenWins -= 1 }) {
+                    Text("Subtract Win Green")
+                } 
+                Button(action: { redWins -= 1 }) {
+                    Text("Subtract Win red")
+                }
+                Button(action: { blueWins -= 1 }) {
+                    Text("Subtract Win blue")
+                }
+                Button(action: { goldWins -= 1 }) {
+                    Text("Subtract Win gold")
+                }
+            }
+            .padding()
+        }
+    }
+}
